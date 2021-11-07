@@ -18,22 +18,47 @@ public class LFSR {
         int NUMBER_OF_DISCARD_DIGITS = 2;
 
         int[] key = generateKey(registers, gates);
-        System.out.println("Key without discarding first " + NUMBER_OF_DISCARD_DIGITS + " numbers \n" + Arrays.toString(key)+ "\n");
+        System.out.println("Key without discarding first " + NUMBER_OF_DISCARD_DIGITS + " numbers \n");
+        for (int i=0; i<key.length;i++)
+        {
+            System.out.print(key[i]);
+        }
+        System.out.println("" + "\n");
 
         int[] newKey = Arrays.copyOfRange(key, NUMBER_OF_DISCARD_DIGITS, key.length);
-        System.out.println("Key with discarding first " + NUMBER_OF_DISCARD_DIGITS + " numbers \n" + Arrays.toString(newKey) + "\n");
+        System.out.println("Key with discarding first " + NUMBER_OF_DISCARD_DIGITS + " numbers \n");
+        for (int i=0; i<newKey.length;i++)
+        {
+            System.out.print(newKey[i]);
+        }
+        System.out.println("" + "\n");
 
 
         int[] plainText = {0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0};
-        System.out.println("Original text (plain text) : \n" + Arrays.toString(plainText) + "\n");
+        System.out.println("Original text (plain text) : \n");
+        for (int i=0; i<plainText.length;i++)
+        {
+            System.out.print(plainText[i]);
+        }
+        System.out.println("" + "\n");
 
         // Encryption
         int[] ciphertext = encrypt(plainText, newKey);
-        System.out.println("Encrypted (cipher text) : \n" + Arrays.toString(ciphertext) + "\n");
+        System.out.println("Encrypted (cipher text) : \n");
+        for (int i=0; i<ciphertext.length;i++)
+        {
+            System.out.print(ciphertext[i]);
+        }
+        System.out.println("" + "\n");
 
         // Decryption
         int[] decrypted = decrypt(ciphertext, newKey);
-        System.out.println("Decrypted (plain text) : \n" + Arrays.toString(decrypted) + "\n");
+        System.out.println("Decrypted (plain text) : \n");
+        for (int i=0; i<decrypted.length;i++)
+        {
+            System.out.print(decrypted[i]);
+        }
+        System.out.println("" + "\n");
 
 
     }
